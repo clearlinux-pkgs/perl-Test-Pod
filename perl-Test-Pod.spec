@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.50
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Summary  : 'check for POD errors in files'
