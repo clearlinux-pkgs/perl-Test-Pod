@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.50
-Release  : 12
+Release  : 13
 URL      : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Summary  : 'check for POD errors in files'
@@ -63,7 +63,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/Test/Pod.pm
+/usr/lib/perl5/site_perl/5.26.1/Test/Pod.pm
 
 %files doc
 %defattr(-,root,root,-)
