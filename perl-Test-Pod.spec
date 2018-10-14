@@ -4,13 +4,13 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.50
-Release  : 15
+Release  : 16
 URL      : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
 Summary  : 'check for POD errors in files'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Test-Pod-doc
+BuildRequires : buildreq-cpan
 
 %description
 Test/Pod version 1.50
@@ -18,12 +18,13 @@ Test/Pod version 1.50
 This library's module, Test::Pod, provides an interface for validating POD in
 module files.
 
-%package doc
-Summary: doc components for the perl-Test-Pod package.
-Group: Documentation
+%package dev
+Summary: dev components for the perl-Test-Pod package.
+Group: Development
+Provides: perl-Test-Pod-devel = %{version}-%{release}
 
-%description doc
-doc components for the perl-Test-Pod package.
+%description dev
+dev components for the perl-Test-Pod package.
 
 
 %prep
@@ -36,7 +37,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -52,9 +53,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -63,8 +64,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Test/Pod.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Test/Pod.pm
 
-%files doc
+%files dev
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+/usr/share/man/man3/Test::Pod.3
