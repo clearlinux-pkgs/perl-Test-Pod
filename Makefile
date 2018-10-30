@@ -1,5 +1,5 @@
 PKG_NAME := perl-Test-Pod
-URL = http://search.cpan.org/CPAN/authors/id/D/DW/DWHEELER/Test-Pod-1.50.tar.gz
+URL = https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
