@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.52
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
-Summary  : 'check for POD errors in files'
+Summary  : Check for POD errors in files
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -22,6 +22,7 @@ module files.
 Summary: dev components for the perl-Test-Pod package.
 Group: Development
 Provides: perl-Test-Pod-devel = %{version}-%{release}
+Requires: perl-Test-Pod = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Pod package.
