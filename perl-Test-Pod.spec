@@ -4,12 +4,13 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.52
-Release  : 33
+Release  : 34
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
-Summary  : Check for POD errors in files
+Summary  : 'check for POD errors in files'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Test-Pod-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -28,14 +29,24 @@ Requires: perl-Test-Pod = %{version}-%{release}
 dev components for the perl-Test-Pod package.
 
 
+%package perl
+Summary: perl components for the perl-Test-Pod package.
+Group: Default
+Requires: perl-Test-Pod = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-Pod package.
+
+
 %prep
 %setup -q -n Test-Pod-1.52
+cd %{_builddir}/Test-Pod-1.52
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -45,7 +56,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -65,8 +76,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/Pod.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Pod.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/Pod.pm
