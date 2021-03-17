@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.52
-Release  : 36
+Release  : 37
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Summary  : 'check for POD errors in files'
@@ -83,4 +83,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Test/Pod.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Test/Pod.pm
