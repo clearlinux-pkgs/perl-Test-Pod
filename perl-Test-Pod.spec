@@ -5,7 +5,7 @@
 #
 Name     : perl-Test-Pod
 Version  : 1.52
-Release  : 48
+Release  : 49
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
 Summary  : 'check for POD errors in files'
